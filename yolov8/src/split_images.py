@@ -3,7 +3,7 @@ import shutil
 import random
 
 
-PATH = 'object_segmentation/data/apples/images'
+PATH = "object_segmentation/data/apples/images"
 RATIO = 0.8
 
 
@@ -11,7 +11,7 @@ RATIO = 0.8
 def split_images(img_path, ratio):
     train_img_dir = os.path.join(img_path, 'train')
     val_img_dir = os.path.join(img_path, 'val')
-    lbl_dir = 'object_segmentation/data/apples/labels'
+    lbl_dir = os.path.join(img_path, '..', 'labels')
     train_lbl_dir = os.path.join(lbl_dir, 'train')
     val_lbl_dir = os.path.join(lbl_dir, 'val')
 
@@ -43,14 +43,14 @@ def split_images(img_path, ratio):
     train_img = img[:split_idx]
     val_img = img[split_idx:]
 
-    # move images to directories
+    # move images and label files to directories
     for f in train_img:
         shutil.copy(os.path.join(img_path, f), os.path.join(train_img_dir, f))
-        shutil.copy(os.path.join(lbl_dir, f + '.txt'), os.path.join(train_lbl_dir, f + '.txt'))
+        shutil.copy(os.path.join(lbl_dir, os.path.splitext(f)[0] + '.txt'), os.path.join(train_lbl_dir, f + '.txt'))
 
     for f in val_img:
         shutil.copy(os.path.join(img_path, f), os.path.join(val_img_dir, f))
-        shutil.copy(os.path.join(lbl_dir, f + '.txt'), os.path.join(val_lbl_dir, f + '.txt'))
+        shutil.copy(os.path.join(lbl_dir, os.path.splitext(f)[0] + '.txt'), os.path.join(val_lbl_dir, f + '.txt'))
 
 
 if __name__ == "__main__":

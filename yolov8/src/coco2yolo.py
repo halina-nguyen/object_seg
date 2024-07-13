@@ -12,7 +12,7 @@ def coco_to_yolo(ann_path):
         with open(ann_path, 'r') as f:
             ann = json.load(f)
 
-        # map each image with id, width and height
+        # map each image to id, width and height
         imgs = {}
         width = {}
         height = {}
@@ -30,7 +30,7 @@ def coco_to_yolo(ann_path):
 
         # create text file for each image
         for a in ann['annotations']:
-            output_dir = os.path.join(label_dir, imgs[a['image_id']] + ".txt")
+            output_dir = os.path.join(label_dir, os.path.splitext(imgs[a['image_id']])[0] + ".txt")
 
             if os.path.exists(output_dir):
                 open(output_dir, "w+").close()
@@ -42,7 +42,7 @@ def coco_to_yolo(ann_path):
             if len(xs_ys) >= 6 and not len(xs_ys) % 2:
 
                 # open text file
-                output_dir = os.path.join(label_dir, imgs[a['image_id']] + ".txt")
+                output_dir = os.path.join(label_dir, os.path.splitext(imgs[a['image_id']])[0] + ".txt")
                 ann_output = open(output_dir, "a")
 
                 # print class index
