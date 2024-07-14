@@ -9,8 +9,12 @@ RATIO = 0.8
 
 # split dataset images into train and val sets
 def split_images(img_path, ratio):
+
+    # image directories
     train_img_dir = os.path.join(img_path, 'train')
     val_img_dir = os.path.join(img_path, 'val')
+
+    # label directories
     lbl_dir = os.path.join(img_path, '..', 'labels')
     train_lbl_dir = os.path.join(lbl_dir, 'train')
     val_lbl_dir = os.path.join(lbl_dir, 'val')
