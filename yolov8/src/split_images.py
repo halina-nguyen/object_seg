@@ -3,7 +3,7 @@ import shutil
 import random
 
 
-PATH = "object_segmentation/data/apples/images"
+PATH = "object_segmentation/data/apples2/images"
 RATIO = 0.8
 
 
