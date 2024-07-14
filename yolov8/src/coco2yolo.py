@@ -3,7 +3,7 @@ import os
 import shutil
 
 
-PATH = "object_segmentation/data/apples/annotations/instances_default.json"
+PATH = "object_segmentation/data/apples2/annotations/instances_default.json"
 
 
 # convert COCO json file to YOLO format

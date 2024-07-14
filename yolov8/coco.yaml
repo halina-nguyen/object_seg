@@ -1,4 +1,4 @@
-path: ./data/apples
+path: ./data/apples2
 train: /images/train
 val: /images/val
 
