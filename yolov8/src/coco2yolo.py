@@ -46,7 +46,7 @@ def coco_to_yolo(ann_path):
                 ann_output = open(output_dir, "a")
 
                 # print class index
-                class_index = a['category_id']
+                class_index = a['category_id'] - 1
                 ann_output.write(f"{class_index} ")
 
                 # print bounding coordinates of segmentation mask
